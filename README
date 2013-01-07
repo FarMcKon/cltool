@@ -1,0 +1,9 @@
+Example command line tool install using easy_install/pip/etc
+
+This builds a tiny egg that installs two command line tools, 'cltool' and 'cltool2'. cltool is a command line tool that uses raw bash, cltool2 is a python script that can be run as a command line tool.
+
+This project was written to teach myself how to do this, and due to the dearth of good tutorials. 
+
+See Also: 
+- http://parijatmishra.wordpress.com/2008/10/13/python-packaging-custom-scripts/
+- http://peak.telecommunity.com/DevCenter/setuptools#non-package-data-files

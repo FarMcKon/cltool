@@ -1,0 +1,5 @@
+#!python
+import sys, os
+print('in cltool2 python script')
+print( os.getcwd())
+
