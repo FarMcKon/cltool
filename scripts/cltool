@@ -1,7 +1,1 @@
-##!python
-#import sys, os
-#print('in runany script')
-#print( os.getcwd())
 echo 'raw echo in cltool script'
-#fur use in scripts=['scripts/runany'],
-

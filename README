@@ -13,10 +13,21 @@ Once that is done, cltool package will be installed, and the commands *cltool*, 
     which cltool
 to see where on your system python deposits it's scripts linkage.
 
-# Some of the Nifty Stuff
+# Some of the Nifty Stuff in setup.py
+The __future__ import block is to make forward compatiblity with Python3 easier. Usually it looks like: 
+    from __future__ import ( unicode_literals, print_function, with_statement, absolute_import )
+Howerver in our installer it is
+    from __future__ import ( print_function, with_statement, absolute_import )
 
+When building an installer, unicode_literals has some bugs related to the fact that zip file format (and many zip tools) don't process unicode filenames well. In installers, it's ofter quicker to remove that line then to fight the errors. 
 
+The initial try block is trying to use new distribute_setup rather than the older setuptools.  I'm not entirely sure of the diference, but I've seen several things on the internet suggesting it's the way to do things.
 
+The version search assumes version is saved as __version__ (some older packages use VERSION) in the init file of the project.  It aslo assomes version is an outright variable, not built from some other value or object. Double check where and how version is used before using it. Some people import the project to get the version number, but I've encountered some weird bugs trying that.  Although it's a hack, I suggest the file-search version of getting the module version.
+
+For clarity, I always set 'where' in find_packages. It makes clearer reading for people new to your project/system.
+
+Finally, 'scripts' is where the magic is.  That simple line does the work of grabbing those scripts, and adding them to the path on the installed system when the install happens. For this exmaple I included 3 scripts, but I recommend only doing one script per module in the real world.
 
 ##See Also: 
 - http://parijatmishra.wordpress.com/2008/10/13/python-packaging-custom-scripts/
