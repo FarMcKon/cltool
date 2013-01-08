@@ -29,6 +29,15 @@ For clarity, I always set 'where' in find_packages. It makes clearer reading for
 
 Finally, 'scripts' is where the magic is.  That simple line does the work of grabbing those scripts, and adding them to the path on the installed system when the install happens. For this exmaple I included 3 scripts, but I recommend only doing one script per module in the real world.
 
-##See Also: 
+# Testing
+Testing a distributed package can be tough. I have a separate file called TESTING which covers how to test a new package in full.  For quick and dirty testing you can run two lines to see how things work.
+    python setup.py sdist bdist_egg # build your egg, and your standard distribution
+    python setup.py develop #do a developer install in that console window
+ As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.
+
+
+
+
+#See Also: 
 - http://parijatmishra.wordpress.com/2008/10/13/python-packaging-custom-scripts/
 - http://peak.telecommunity.com/DevCenter/setuptools#non-package-data-files
