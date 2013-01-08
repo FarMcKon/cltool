@@ -1,0 +1,3 @@
+#!python
+import cltool
+print 'cltool3, project version %s' %cltool.__version__
