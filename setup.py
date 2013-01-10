@@ -19,6 +19,8 @@ setup(
     name='cltool',
     version= version,
     description='Example of installing a comand line tool via pip/easy_install',
+    author='Far McKon',
+    author_email='FarMcKon@gmail.com',
     packages=find_packages(where='.'),
     include_package_data=True,
     zip_safe=False,
