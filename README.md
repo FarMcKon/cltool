@@ -53,9 +53,15 @@ Testing a distributed package can be tough. I have a separate file called TESTIN
     python setup.py sdist bdist_egg # build your egg, and your standard distribution
     python setup.py develop #do a developer install in that console window
 
-As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.
+As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.  If you want to use pypitest to test the module before releasing, see the TESTING doc for more info.
 
+# Releasing
+Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading RELEASING.md for more info on how to release.  But if you just want to release it quick and dirty, you can do that (by registering at PyPi)[pypi.python.org/pypi?%3Aaction=register_form] and then running: 
 
+    python setup.py register sdist bdist_egg upload 
+
+Happy Hacking,
+- Far McKon
 
 
 #See Also: 
