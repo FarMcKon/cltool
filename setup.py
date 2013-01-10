@@ -22,6 +22,8 @@ setup(
     packages=find_packages(where='.'),
     include_package_data=True,
     zip_safe=False,
-    scripts=['scripts/cltool','scripts/cltool2','scripts/cltool3'],
+    #scripts=['scripts/cltool','scripts/cltool2',],
+    entry_points={
+        'console_scripts': [ 'cltool4= cltool:command_line_runner',]  },
 )
    

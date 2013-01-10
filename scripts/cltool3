@@ -1,4 +1,0 @@
-#!python
-from __future__ import ( unicode_literals, print_function, with_statement, absolute_import)
-import cltool
-print 'cltool3, project version %s' %cltool.__version__
