@@ -1,26 +1,32 @@
 #cltool
 
-Example command line tool install using easy_install/pip/etc
+An Example of how to build a command line tool that can be installed using easy_install or pip.
 
-This builds a tiny egg that installs two command line tools, 'cltool' and 'cltool2'. cltool is a command line tool that uses raw bash, cltool2 is a python script that can be run as a command line tool.
-
-This project was written to teach myself how to do this, and due to the dearth of good tutorials. 
+This builds a tiny module that installs a few test command tools, *cltool1*, *cltool2*, and *cltool3*. cltool is a command line tool that uses raw bash, cltool2 is a python script that can be run as a command line tool. This project was written to teach myself how to do this, and due to the dearth of good tutorials. 
 
 ## Installing cltool 
 To install cltool,  you can simply run 
 
     pip install cltool
 
-Once that is done, cltool package will be installed, and the commands *cltool*, *cltool2* and *cltool3* will be avaliable from your command line. If you want to see exactly which cltool or cltool2 was installed, you can simply run 
+Once that is done, cltool package will be installed, and the commands *cltool1*, *cltool2* and *cltool3* will be avaliable from your command line. If you want to see exactly which cltool or cltool2 was installed, you can simply run:
     
-    which cltool
+    which cltool1
     which cltoo2
     which cltool3
 
+### cltool1 is:
+An example raw bash script that you can run from the command line, to print out a hello world
+
+### cltool2 is:
+An example python file that is launched by bash script that you can run from the command line, to print out a hello world
+
+### cltool3 is:
+An easy_install/pip generated command line script that launches directly to a function in a python package.
 
 ## Some of the Nifty Stuff in setup.py
 
-### use the future but avoid unicode though
+### use the future but avoid unicode 
 The __future__ import block is to make forward compatiblity with Python3 easier. Usually it looks like: 
 
     from __future__ import ( unicode_literals, print_function, with_statement, absolute_import )
