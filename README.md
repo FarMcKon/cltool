@@ -43,34 +43,32 @@ For clarity, I always set 'where' in find_packages. It makes clearer reading for
 ### scripts, the magic
 The setup value 'scripts' is where the magic is for *os specific tools*  That simple line does the work of grabbing those scripts, and adding them to the path on the installed system when the install happens.  Sadly, this is not very cross-platform. Your scripts need to be OS specific, and you ca not load directly into endpoints in your program.  So, for example, .exe wrappers are not created for windows.  For cross platform magic, see the entry_points info below, which is better
 
-# entry_points, even moar magic!
-The setup value 'entry_points' is even more magical. Entry_points in general is used to give other packags info on where to connect to your module.  The'console_scripts' value in entry_poinst is the most magic, and **as your module installs, the host OS will build what it needs to run that at the commandline*.  It's magic!!!1 The entry is in the form of :
+### entry_points, even moar magic!
+The setup value 'entry_points' is even more magical. Entry_points in general is used to give other packags info on where to connect to your module.  The'console_scripts' value in entry_poinst is the most magic, and **as your module installs, the host OS will build what it needs to run that at the commandline*. Magic!!!1!! The entry is in the form of :
 
-    entrypoints = { 'console_scripts': ['cmdline_tool_name= package:function_to_run',] } 
+    entry_points = { 'console_scripts': ['cmdline_tool_name= package:function_to_run',] } 
 
 For my example app, that line is:
 
-    'console_scripts': [ 'cltool4= cltool:command_line_runner',]  },
+    entry_points = {'console_scripts': [ 'cltool4= cltool:command_line_runner',]  }
 `
 On windows you will get a proper .exe created and added to your path. On *nix programs you get a small script that launches that entry point. In both cases, the installing host handles the problem of how to make sure the console tool works.
 
 
-# Testins
-Testing a distributed package can be tough. I have a separate file called TESTING which covers how to test a new package in full.  For quick and dirty testing you can run two lines to see how things work.
+# Testing
+Testing a distributed package can be tough. I have a separate file called [TESTING.md](TESTING.md) which covers how to test a new package in full.  For quick and dirty testing you can run two lines to see how things work.
 
     python setup.py sdist bdist_egg # build your egg, and your standard distribution
     python setup.py develop #do a developer install in that console window
 
-As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.  If you want to use pypitest to test the module before releasing, see the TESTING doc for more info.
+As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.  If you want to use pypitest to test the module before releasing, see the [TESTING.md](TESTING.md) doc for more info.
 
 # Releasing
-Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading RELEASING.md for more info on how to release.  But if you just want to release it quick and dirty, you can do that (by registering at PyPi)[pypi.python.org/pypi?%3Aaction=register_form] and then running: 
+Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading [RELEASING.md](RELEASING.md for more info on how to release.  But if you just want to release it quick and dirty, you can do that [by registering at PyP](http://pypi.python.org/pypi?%3Aaction=register_form) and then running: 
 
     python setup.py register sdist bdist_egg upload 
 
-
-
-#See Also: 
+##See Also: 
 - http://parijatmishra.wordpress.com/2008/10/13/python-packaging-custom-scripts/
 - http://peak.telecommunity.com/DevCenter/setuptools#non-package-data-files
 
