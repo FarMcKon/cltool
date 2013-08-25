@@ -70,7 +70,7 @@ Testing a distributed package can be tough. I have a separate file called [TESTI
 As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.  If you want to use pypitest to test the module before releasing, see the [TESTING.md](TESTING.md) doc for more info.
 
 # Releasing
-Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading [RELEASING.md](RELEASING.md for more info on how to release.  But if you just want to release it quick and dirty, you can do that [by registering at PyP](http://pypi.python.org/pypi?%3Aaction=register_form) and then running: 
+Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading [RELEASING.md](RELEASING.md) for more info on how to release.  But if you just want to release it quick and dirty, you can do that [by registering at PyP](http://pypi.python.org/pypi?%3Aaction=register_form) and then running:
 
     python setup.py register sdist bdist_egg upload 
 
