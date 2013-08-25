@@ -1,7 +1,7 @@
 # Document on how to release well.
 
 ## Testing
-Do testing [on TestPyPi](./TESTING).
+Do testing [on TestPyPi](./TESTING.md).
 
 ## Releasing
 Register for [an account on PyPi](http://pypi.python.org/pypi?%3Aaction=register_form).  Then simply run
