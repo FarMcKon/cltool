@@ -27,10 +27,10 @@ To get your machine to talk to the pypitest server, you will need to make a seve
 
 ### Build and send your module to pypitest server
 Add more info on this here
-    ptyhon setup.py register -r pypitest sdist bdist_egg upload -r pypitest
+    python setup.py register -r pypitest sdist bdist_egg upload -r pypitest
 
 ### Setup a virtualenv to test your pip install
-Virtual Enviromnents (virtualenv) is the best way to test installs, by putting them in a sandbox to see if they work. There are (some great virtualenv tutorials)[http://iamzed.com/2009/05/07/a-primer-on-virtualenv/] and a quick reminder of how to fire up a virtualenv is below
+Virtual Environments (virtualenv) is the best way to test installs, by putting them in a sandbox to see if they work. There are [some great virtualenv tutorials](http://iamzed.com/2009/05/07/a-primer-on-virtualenv/) and a quick reminder of how to fire up a virtualenv is below
 
     virtualenv --no-site-packages testmyproject
     cd testmyproject
