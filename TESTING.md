@@ -1,5 +1,5 @@
 # Testing
-This doc covers some testing topics when trying to make a python distributable, and especially when trying to make a python distributable that delivers a commnad line tool.
+This doc covers some testing topics when trying to make a python distributable, and especially when trying to make a python distributable that delivers a command line tool.
 
 ## Testing Locally
 For quick and dirty testing you can run two lines to see how things work.
