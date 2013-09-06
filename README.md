@@ -41,24 +41,24 @@ When building an installer, unicode_literals has some bugs related to the fact t
 The initial try block is trying to use new distribute_setup rather than the older setuptools.  I am not entirely sure of the diference, but I've seen several things on the internet suggesting it's the way to do things.
 
 ### Version can be tricky
-The version search assumes version is saved as __version__ (some older packages use VERSION) in the init file of the project.  It aslo assomes version is an outright variable, not built from some other value or object. Double check where and how version is used before using it. Some people import the project to get the version number, but I've encountered some weird bugs trying that.  Although it's a hack, I suggest the file-search version of getting the module version.
+The version search assumes version is saved as `__version__` (some older packages use VERSION) in the init file of the project.  It aslo assomes version is an outright variable, not built from some other value or object. Double check where and how version is used before using it. Some people import the project to get the version number, but I've encountered some weird bugs trying that.  Although it's a hack, I suggest the file-search version of getting the module version.
 
 ###Use 'where' for package search readability
-For clarity, I always set 'where' in find_packages. It makes clearer reading for people new to your project/system.
+For clarity, I always set `where` in find_packages. It makes clearer reading for people new to your project/system.
 
 ### scripts, the magic
-The setup value 'scripts' is where the magic is for *os specific tools*  That simple line does the work of grabbing those scripts, and adding them to the path on the installed system when the install happens.  Sadly, this is not very cross-platform. Your scripts need to be OS specific, and you ca not load directly into endpoints in your program.  So, for example, .exe wrappers are not created for windows.  For cross platform magic, see the entry_points info below, which is better
+The setup value `scripts` is where the magic is for *os specific tools*  That simple line does the work of grabbing those scripts, and adding them to the path on the installed system when the install happens.  Sadly, this is not very cross-platform. Your scripts need to be OS specific, and you can not load directly into endpoints in your program.  So, for example, .exe wrappers are not created for windows.  For cross platform magic, see the entry_points info below, which is better.
 
 ### entry_points, even moar magic!
-The setup value 'entry_points' is even more magical. Entry_points in general is used to give other packags info on where to connect to your module.  The'console_scripts' value in entry_poinst is the most magic, and **as your module installs, the host OS will build what it needs to run that at the commandline*. Magic!!!1!! The entry is in the form of :
+The setup value `entry_points` is even more magical. `Entry_points` in general is used to give other packages info on where to connect to your module.  The `console_scripts` value in `entry_points` is the most magic, and **as your module installs, the host OS will build what it needs to run that at the commandline**. Magic!!!1!! The entry is in the form of :
 
     entry_points = { 'console_scripts': ['cmdline_tool_name= package:function_to_run',] } 
 
 For my example app, that line is:
 
-    entry_points = {'console_scripts': [ 'cltool4= cltool:command_line_runner',]  }
-`
-On windows you will get a proper .exe created and added to your path. On *nix programs you get a small script that launches that entry point. In both cases, the installing host handles the problem of how to make sure the console tool works.
+    entry_points = {'console_scripts': [ 'cltool3= cltool:command_line_runner',]  }
+
+On windows you will get a proper .exe created and added to your path. On *nix you get a small script that launches that entry point. In both cases, the installing host handles the problem of how to make sure the console tool works.
 
 
 # Testing
@@ -70,7 +70,7 @@ Testing a distributed package can be tough. I have a separate file called [TESTI
 As always *python setup.py develop --help* will give you some great commands and semi-clear notes on what they do.  If you want to use pypitest to test the module before releasing, see the [TESTING.md](TESTING.md) doc for more info.
 
 # Releasing
-Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading [RELEASING.md](RELEASING.md for more info on how to release.  But if you just want to release it quick and dirty, you can do that [by registering at PyP](http://pypi.python.org/pypi?%3Aaction=register_form) and then running: 
+Once you have tweaked, tested, and are sure your module (mostly) works, you can publish your module to PyPi so that other users can run *pip install <module>* and use it.  I recommend reading [RELEASING.md](RELEASING.md) for more info on how to release.  But if you just want to release it quick and dirty, you can do that [by registering at PyP](http://pypi.python.org/pypi?%3Aaction=register_form) and then running:
 
     python setup.py register sdist bdist_egg upload 
 
